@@ -1,4 +1,4 @@
-# Production Grade RAG Pipeline
+# Assignment 2: Production-Grade RAG Pipeline with Advanced Chunking & Multi-Tier Caching
 
 ## Overview
 
