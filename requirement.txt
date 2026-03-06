@@ -1,1 +1,7 @@
-
+openai
+langchain
+chromadb
+sentence-transformers
+scikit-learn
+python-dotenv
+pyyaml
