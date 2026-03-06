@@ -49,7 +49,7 @@ incorrect responses
 
 poor retrieval quality
 
-3. Solution: Intelligent Document Chunking
+Solution: Intelligent Document Chunking
 
 To solve this problem, this system introduces:
 
@@ -59,9 +59,9 @@ Sliding Window Chunking
 
 These strategies help maintain document structure and context.
 
-4. Parent-Child Chunking
+Parent-Child Chunking
 
-Parent-Child Chunking creates a hierarchical relationship between chunks.
+  Parent-Child Chunking creates a hierarchical relationship between chunks.
 
 Two levels exist:
 
