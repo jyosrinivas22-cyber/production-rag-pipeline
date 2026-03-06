@@ -40,68 +40,89 @@ Retrieval happens on **child chunks**, while the **parent chunk is passed to the
 
 ## RAG Pipeline Architecture
 
-+-----------------------+
-|   Source Documents    |
-|   (PDF / Text Files)  |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   Text Preprocessing  |
-|   Cleaning & Parsing  |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   Parent Chunking     |
-|   Large Context       |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   Child Chunking      |
-|   Small Search Units  |
-+-----------------------+
-           |
-           v
-+-----------------------+
-| Sliding Window        |
-| Chunking (Overlap)    |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|  Embedding Generation |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   Vector Database     |
-|   Store Embeddings    |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|      User Query       |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   Similarity Search   |
-|   Retrieve Chunks     |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   Multi-Tier Cache    |
-| Query + Retrieval     |
-+-----------------------+
-           |
-           v
-+-----------------------+
-|   LLM Response        |
-|   Generate Answer     |
-+-----------------------+
++---------------------------+
+|      Source Documents     |
+|      (PDF / Text Data)    |
++---------------------------+
+              |
+              v
++---------------------------+
+|     Document Ingestion    |
+|  Load and preprocess data |
++---------------------------+
+              |
+              v
++---------------------------+
+|     Parent Chunking       |
+|  Create large sections    |
+|  to preserve context      |
++---------------------------+
+              |
+              v
++---------------------------+
+|      Child Chunking       |
+|  Smaller chunks used for  |
+|  similarity retrieval     |
++---------------------------+
+              |
+              v
++---------------------------+
+|  Sliding Window Chunking  |
+| Overlapping chunks ensure |
+| context continuity        |
++---------------------------+
+              |
+              v
++---------------------------+
+|   Embedding Generation    |
+| Convert text → vectors    |
++---------------------------+
+              |
+              v
++---------------------------+
+|      Vector Database      |
+| Store embeddings for      |
+| similarity search         |
++---------------------------+
+              |
+              v
++---------------------------+
+|        User Query         |
++---------------------------+
+              |
+              v
++---------------------------+
+|      Query Embedding      |
++---------------------------+
+              |
+              v
++---------------------------+
+|     Similarity Search     |
+| Retrieve relevant chunks  |
++---------------------------+
+              |
+              v
++---------------------------+
+|   Retrieve Parent Chunk   |
+| Provide full context      |
++---------------------------+
+              |
+              v
++---------------------------+
+|      Multi-Tier Cache     |
+| Query Cache + Retrieval   |
++---------------------------+
+              |
+              v
++---------------------------+
+|       LLM Generation      |
+| Generate final response   |
++---------------------------+
+              |
+              v
++---------------------------+
+|        Final Answer       |
++---------------------------+
 
 ## Sliding Window Chunking
 
