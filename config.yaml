@@ -1,0 +1,13 @@
+embedding_model: text-embedding-3-small
+llm_model: gpt-4o-mini
+
+chunking:
+  parent_chunk_size: 1000
+  child_chunk_size: 300
+  overlap: 50
+
+caching:
+  semantic_threshold: 0.85
+
+retrieval:
+  top_k: 2
